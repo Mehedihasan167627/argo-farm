@@ -162,11 +162,13 @@
                         <i class="hvr-buzz-out fas fa-user-lock"></i>Accounts
                     </a>
                     <ul class="nav-second-level">
-                        <li><a href="index.html">Financial year</a></li>
+                        
+                        <li><a href="{% url 'accounts:financialyear' %}">Financial year</a></li>
+                        <li><a href="{% url 'accounts:openingbalance' %}">Opening Balance</a></li>                        
                         <li><a href="index.html">Chart of Accounts</a></li>
                         <li><a href="index.html">Sub Accounts</a></li>
                         <li><a href="index.html">Predifined Account</a></li>
-                        <li><a href="index.html">Opening Balance</a></li>
+                    
                         <li><a href="index.html">Debit Voucher</a></li>
                         <li><a href="index.html">Credit Voucher</a></li>
                         <li><a href="index.html">Contra Voucher</a></li>
