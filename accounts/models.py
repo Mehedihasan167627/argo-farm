@@ -1,23 +1,6 @@
 from django.db import models
 
 
-
-def generate_transaction_code(prefix):
-    last_code = Account_voucher.objects.all().order_by('id').last()
-    if not last_code: return f'{prefix}-0001'
-    
-    loan_code  = last_code.voucher_no
-    loan_code_int = int(loan_code[3:])
-    # print("Last Code integer:", loan_code_int)
-    new_loan_code_int = loan_code_int + 1
-    # print("New Code integer:", new_loan_code_int)
-    new_loan_code = f'{prefix}-' + str(new_loan_code_int).zfill(4)
-    return new_loan_code
-
-
-
-
-
 class Account_type(models.Model):
     uuid                = models.CharField(max_length=50, null = True, blank = True, default='0')
     account_type_name = models.CharField(max_length=50, null = True, blank = True, default='0')
