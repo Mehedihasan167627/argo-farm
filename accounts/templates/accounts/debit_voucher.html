@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block  title %}Dedit Voucher{% endblock %}
 {% load static %}
@@ -12,7 +13,7 @@
 <div class="content-wrapper">
     <div class="main-content">
    
-        <div class="content-header">
+        <div class="content-header d-flex justify-content-between">
             <div class="page-header m-0">
                 <h4 class="page-title">Debit Voucher</h4>
                 <ul class="breadcrumbs">
@@ -34,6 +35,12 @@
                         <a href="#">Debit Voucher</a>
                     </li>
                 </ul>
+            </div>
+            <!-- Button trigger modal -->
+            <div class="modal-button">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Create Vouchar 
+                </button>
             </div>
         </div>
 
@@ -57,6 +64,103 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create Debit Vouchar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group row mb-2">
+                                    <label for="VoucherType" class="col-sm-3 col-form-label">Voucher Type </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" id="VoucherType" readonly placeholder="Debit">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row mb-2">
+                                    <label for="ReverseAccountHead" class="col-sm-3 col-form-label" >Debit Account Head</label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" id="ReverseAccountHead" placeholder="Select one">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row mb-2">
+                                    <label for="example-date-input" class="col-sm-3 col-form-label"> Date </label>
+                                        <div class="col-sm-4">
+                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                        </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="Remark" class="col-sm-3 col-form-label">Remark </label>
+                                    <div class="col-sm-4">
+                                      <textarea class="form-control"></textarea>
+                                    </div>
+                                  </div>
+                
+                                  <table class="table table-bordered mt-5">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Account Name</th>
+                                        <th scope="col">Subtype</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Ladger Amount</th>
+                                        <th scope="col">Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="inputlistBox">
+                                    
+                                        <tr>
+                                            <td scope="row">
+                                                <select class="form-select" id="sel1" name="sellist1">
+                                                    <option>Please select One</option>
+                                                    <option>Personal Account</option>
+                                                    <option>Nominal Account</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-select" id="sel1" name="name="sub_type"">
+                                                    <option>................</option>
+                                                    <option>Personal Account</option>
+                                                    <option>Nominal Account</option>
+                                                </select>
+                                            </td>
+                                            <td><input class="form-control amount" type="number" name="amount" value="" id="example-date-input"></td>
+                                            <td><input class="form-control" type="text" value="" id="example-date-input"></td>
+                                            <td>
+                                                
+                                            </td>
+                                          </tr>
+                                      
+    
+                                     </div>
+                                    
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td scope="row">
+                                                <button type="button" class="btn btn-dark addMoreBtn">Add More</button>
+                                            </td>
+                                            <td>Total</td>
+                                            <td><input readonly class="form-control" id="totalAmount" type="number" value="" id="example-date-input"></td>
+                                            <td colspan="2"></td>
+                                            
+                                          </tr>
+                                    </tfoot>
+                                  </table>
+                                  
+                            </form>
+                        </div>
+                            
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -86,10 +190,12 @@
                                                 <td>29</td>
                                                 <td>2011/06/27</td>
                                                 <td>
-                                                    <button class="btn-outline-success">
-                                                        Edit
+                                                    <button class="btn-outline-success btn">
+                                                        <i class='far fa-edit'></i>
                                                     </button>
-                                                    <button class="btn-danger">X</button>
+                                                    <button class="btn-outline-danger btn">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                            
@@ -117,7 +223,62 @@
     <script src="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
     <!--Page Active Scripts(used by this page)-->
     <script src="{% static 'assets/plugins/datatables/data-basic.active.js' %}"></script>
-  
+   <script>
+
+     let singleRow=`
+     <tr>
+        <td scope="row">
+            <select class="form-select" id="sel1" name="sellist1">
+                <option>Please select One</option>
+                <option>Personal Account</option>
+                <option>Nominal Account</option>
+            </select>
+        </td>
+        <td>
+            <select class="form-select" id="sel1" name="sub_type">
+                <option>................</option>
+                <option>Personal Account</option>
+                <option>Nominal Account</option>
+            </select>
+        </td>
+        <td><input class="form-control amount" type="number" value="" name='amount' id="example-date-input"></td>
+        <td><input class="form-control" type="text" value="" id="example-date-input"></td>
+        <td>
+            <button type="button" class="btn-danger btn removeBtn">
+                remove
+            </button>
+        </td>
+        </tr>
+
+     `;
+
+   
+     let elementList=$("#inputlistBox")
+     $(".addMoreBtn").on("click",function(){
+         elementList.append(singleRow)
+     })
+     $(document).on("click",".removeBtn",function(){
+        $(this).parent().parent().remove()
+        total_calculation()
+     });
+
+
+     let totalShow=$("#totalAmount")
+    function total_calculation(){      
+        var amountBox = $('.amount');
+        var sum=0
+        for(var i=0; i<amountBox.length;i++){
+           sum+=Number(amountBox[i].value)   
+        }    
+       totalShow.val(parseFloat(sum).toFixed(2))
+        
+    }
+    
+    $(document).on("keyup",".amount",function(){
+        total_calculation()
+         
+    })
+   </script>
 
 {% endblock js %}
 

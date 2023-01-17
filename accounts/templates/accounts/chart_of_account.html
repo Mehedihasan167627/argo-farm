@@ -4,6 +4,11 @@
 
 {% block css %}
 <link href="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+ <style>
+   .toggle{
+      display: block !important;
+   }
+ </style>
 {% endblock %}
     
 
@@ -50,253 +55,147 @@
                     </div>
                 </div>
 
-                <script>
-                    function myFunction() {
-                        var x = document.getElementById("myDIV");
-                        if (x.style.display === "none") {
-                            x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
-                        }
-                    }
-                </script>
-
-                <script>
-
-
-
-                    function save() {
-                        var x = document.getElementById("save");
-                        if (x.style.display === "none") {
-                            x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
-                        }
-                    }
-
-
-                    function Current_Assets() {
-                        console.log("abcs")
-                        var x = document.getElementById("Current_Assets");
-                        if (x.style.display === "none") {
-                            x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
-                        }
-                    }
-
-                    function Current_Assets_New() {
-                        var x = document.getElementById("Current_Assets_New");
-                        if (x.style.display === "none") {
-                            x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
-                        }
-                    }
-
-
-                    function Current_Assets_New() {
-                        var x = document.getElementById("s");
-                        if (x.style.display === "none") {
-                            x.style.display = "block";
-                        } else {
-                            x.style.display = "none";
-                        }
-                    }
-
-                    function toggle(data) {
-                        var xnew = document.getElementById("bottom_bt_new");
-                        var yold = document.getElementById("bottom_bt_old");
-                        if (data == 'new') {
-                            xnew.style.display = "block";
-                            yold.style.display = "none";
-                        } else {
-                            xnew.style.display = "none";
-                            yold.style.display = "block";
-                        }
-                    }
-
-                </script>
-
-
-                <style>
-                    .button1 {
-                        background-color: white;
-                        color: black;
-                        border: 2px solid #4CAF50;
-                    }
-
-                    .button1:hover {
-                        background-color: #4CAF50;
-                        color: white;
-                    }
-                </style>
-
 
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-6" id="treeLoad"><ul id="tree1" class="tree"><li class="branch"><i class="indicator fas fa-folder-open far"></i><i></i><a href="#">Chart Of Account</a><ul><li data-id="1" data-account_code="00001" data-account_name="Assets" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Chart Of Account" id="liId" class="branch" style=""><i class="indicator fas fa-folder-open far"></i>Assets<ul><li data-id="6" data-account_code="0095" data-account_name="Current Asset" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Assets" id="liId" class="branch" style=""><i class="indicator fas fa-folder-open far"></i>Current Asset<ul><li data-id="15" data-account_code="0015" data-account_name="Account Receivable" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Current Asset" id="liId" class="branch" style=""><i class="indicator fas fa-folder-open far"></i>Account Receivable<ul><li data-id="34" data-account_code="0034" data-account_name="Student Receivable" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Account Receivable" id="liId" style="">Student Receivable</li><li data-id="35" data-account_code="0035" data-account_name="Employee Receivable" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Account Receivable" id="liId" style="">Employee Receivable</li><li data-id="36" data-account_code="0036" data-account_name="Customer Receivable" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Account Receivable" id="liId" style="">Customer Receivable</li><li data-id="57" data-account_code="0057" data-account_name="Supply Receivable" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Account Receivable" id="liId" style="">Supply Receivable</li><li data-id="58" data-account_code="0015" data-account_name="Hello" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Account Receivable" id="liId" class="branch" style=""><i class="indicator fas far fa-folder"></i>Hello<ul><li data-id="59" data-account_code="0015" data-account_name="hi" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Hello" id="liId" style="display: none;">hi</li></ul></li></ul></li><li data-id="16" data-account_code="0016" data-account_name="Cash" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Current Asset" id="liId" class="branch" style=""><i class="indicator fas far fa-folder"></i>Cash<ul><li data-id="37" data-account_code="0037" data-account_name="Cash In Hand" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Cash" id="liId" style="display: none;">Cash In Hand</li><li data-id="38" data-account_code="0038" data-account_name="Petty Cash" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Cash" id="liId" style="display: none;">Petty Cash</li></ul></li><li data-id="17" data-account_code="0017" data-account_name="Bank" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Current Asset" id="liId" class="branch" style=""><i class="indicator fas far fa-folder"></i>Bank<ul><li data-id="39" data-account_code="0039" data-account_name="City Bank" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Bank" id="liId" style="display: none;">City Bank</li><li data-id="40" data-account_code="0040" data-account_name="Zenith Bank" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Bank" id="liId" style="display: none;">Zenith Bank</li></ul></li></ul></li><li data-id="7" data-account_code="0096" data-account_name="Fixed Asset" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Assets" id="liId" class="branch" style=""><i class="indicator fas far fa-folder"></i>Fixed Asset<ul><li data-id="18" data-account_code="0018" data-account_name="Good Wills" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Fixed Asset" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Good Wills<ul><li data-id="41" data-account_code="0041" data-account_name="Goodwill" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Good Wills" id="liId" style="display: none;">Goodwill</li></ul></li><li data-id="19" data-account_code="0019" data-account_name="Property &amp; Equipment" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Fixed Asset" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Property &amp; Equipment<ul><li data-id="42" data-account_code="0042" data-account_name="Computer &amp; Tables" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Property &amp; Equipment" id="liId" style="display: none;">Computer &amp; Tables</li></ul></li></ul></li></ul></li><li data-id="2" data-account_code="00002" data-account_name="Expenses" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Chart Of Account" id="liId" class="branch" style=""><i class="indicator fas far fa-folder"></i>Expenses<ul><li data-id="8" data-account_code="0008" data-account_name="Cost of Good Solds" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Expenses" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Cost of Good Solds<ul><li data-id="20" data-account_code="0020" data-account_name="Cost of Good Sold" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Cost of Good Solds" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Cost of Good Sold<ul><li data-id="43" data-account_code="0043" data-account_name="Cogs" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Cost of Good Sold" id="liId" style="display: none;">Cogs</li></ul></li><li data-id="21" data-account_code="0021" data-account_name="Job Expense" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Cost of Good Solds" id="liId" style="display: none;">Job Expense</li></ul></li><li data-id="9" data-account_code="0009" data-account_name="Over Head Cost" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Expenses" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Over Head Cost<ul><li data-id="22" data-account_code="0022" data-account_name="Payroll Expense" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Over Head Cost" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Payroll Expense<ul><li data-id="44" data-account_code="0044" data-account_name="Salary Expense" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Payroll Expense" id="liId" style="display: none;">Salary Expense</li></ul></li><li data-id="23" data-account_code="0023" data-account_name="Utilities" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Over Head Cost" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Utilities<ul><li data-id="45" data-account_code="0045" data-account_name="Electric bill" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Utilities" id="liId" style="display: none;">Electric bill</li><li data-id="46" data-account_code="0046" data-account_name="House Rent" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Utilities" id="liId" style="display: none;">House Rent</li></ul></li></ul></li></ul></li><li data-id="3" data-account_code="00003" data-account_name="Income" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Chart Of Account" id="liId" class="branch" style=""><i class="indicator fas far fa-folder"></i>Income<ul><li data-id="10" data-account_code="0010" data-account_name="Direct Income" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Income" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Direct Income<ul><li data-id="24" data-account_code="0024" data-account_name="Sales Accounts" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Direct Income" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Sales Accounts<ul><li data-id="47" data-account_code="0047" data-account_name="Sales Account" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Sales Accounts" id="liId" style="display: none;">Sales Account</li></ul></li><li data-id="25" data-account_code="0025" data-account_name="Construction Income" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Direct Income" id="liId" style="display: none;">Construction Income</li></ul></li><li data-id="11" data-account_code="0011" data-account_name="Indirect Income" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Income" id="liId" style="display: none;">Indirect Income</li></ul></li><li data-id="4" data-account_code="00004" data-account_name="Liability" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Chart Of Account" id="liId" class="branch" style=""><i class="indicator fas far fa-folder"></i>Liability<ul><li data-id="12" data-account_code="0012" data-account_name="Current Liability" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Liability" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Current Liability<ul><li data-id="26" data-account_code="0026" data-account_name="Accrued Expenses" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Current Liability" id="liId" style="display: none;">Accrued Expenses</li><li data-id="27" data-account_code="0027" data-account_name="Accounts pay by name supplier" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Current Liability" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Accounts pay by name supplier<ul><li data-id="48" data-account_code="0048" data-account_name="Abc Supplier" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Accounts pay by name supplier" id="liId" style="display: none;">Abc Supplier</li></ul></li><li data-id="28" data-account_code="0028" data-account_name="Provisions" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Current Liability" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Provisions<ul><li data-id="49" data-account_code="0049" data-account_name="Provision for npf contribution" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Provisions" id="liId" style="display: none;">Provision for npf contribution</li><li data-id="50" data-account_code="0050" data-account_name="Provision for State Income Tax" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Provisions" id="liId" style="display: none;">Provision for State Income Tax</li></ul></li><li data-id="29" data-account_code="0029" data-account_name="Unearned Revenue" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Current Liability" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Unearned Revenue<ul><li data-id="51" data-account_code="0051" data-account_name="Property Sales" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Unearned Revenue" id="liId" style="display: none;">Property Sales</li></ul></li></ul></li><li data-id="13" data-account_code="0013" data-account_name="Long Term Liability" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Liability" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Long Term Liability<ul><li data-id="30" data-account_code="0030" data-account_name="Long-Term Debt" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Long Term Liability" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Long-Term Debt<ul><li data-id="52" data-account_code="0052" data-account_name="Debts" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Long-Term Debt" id="liId" style="display: none;">Debts</li></ul></li><li data-id="31" data-account_code="0031" data-account_name="Other Long-Term Ã¡Liabilities" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Long Term Liability" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Other Long-Term Ã¡Liabilities<ul><li data-id="53" data-account_code="0053" data-account_name="Other Long-Term Ã¡Liabilities" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Other Long-Term Ã¡Liabilities" id="liId" style="display: none;">Other Long-Term Ã¡Liabilities</li></ul></li></ul></li></ul></li><li data-id="5" data-account_code="00005" data-account_name="Share Holder Equity" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Chart Of Account" id="liId" class="branch" style=""><i class="indicator fas far fa-folder"></i>Share Holder Equity<ul><li data-id="14" data-account_code="0014" data-account_name="Equity" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Share Holder Equity" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Equity<ul><li data-id="32" data-account_code="0032" data-account_name="Equity Capital" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Equity" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Equity Capital<ul><li data-id="54" data-account_code="0054" data-account_name="Capital Fund" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Equity Capital" id="liId" style="display: none;">Capital Fund</li></ul></li><li data-id="33" data-account_code="0033" data-account_name="Retained Earnings" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Equity" id="liId" class="branch" style="display: none;"><i class="indicator fas far fa-folder"></i>Retained Earnings<ul><li data-id="55" data-account_code="0055" data-account_name="Current year Profit &amp; Loss" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Retained Earnings" id="liId" style="display: none;">Current year Profit &amp; Loss</li><li data-id="56" data-account_code="0056" data-account_name="Last year Profit &amp; Loss" data-is_active="1" data-is_stock="0" data-is_fixed_asset_schedule="0" data-parent="Retained Earnings" id="liId" style="display: none;">Last year Profit &amp; Loss</li></ul></li></ul></li></ul></li></ul></li></ul></div>
-
+                        <div class="col-lg-6" id="treeLoad">
+                           <ul id="tree1" class="tree">
+                              <li class="branch">
+                                 <i class="indicator fas fa-folder-open far"></i>
+                                 <i></i><a href="#" class="branchBtn">Chart Of Account</a>
+                                 <ul>
+                                    <li class="parent">
+                                        <i class="indicator fas fa-folder-open far"></i>   Assets
+                                         <ul style="display:none;">
+                                          <li>Student Receive</li>
+                                          <li>Staff Receive</li>
+                                          <li class="parent">
+                                             <i class="indicator fas fa-folder-open far"></i>Students
+                                                 <ul style="display:none;">
+                                                  <li>Student Receive</li>
+                                                  <li>Staff Receive</li>
+                                                  <li>Teacher Receive</li>
+                                                 </ul>
+                                                   
+                                          </li>
+                                         </ul>
+                                       </li>
+                                    <li class="parent">
+                                        <i class="indicator fas fa-folder-open far"></i>   Expenses
+                                        <ul style="display:none;">
+                                          <li>Student Receive</li>
+                                          <li>Staff Receive</li>
+                                          <li class="parent">
+                                             <i class="indicator fas fa-folder-open far"></i>Students
+                                                 <ul style="display:none;">
+                                                  <li>Student Receive</li>
+                                                  <li>Staff Receive</li>
+                                                  <li>Teacher Receive</li>
+                                             </ul>
+                                                   
+                                          </li>
+                                         </ul>
+                                    </li>
+                                    <li class="parent">
+                                        <i class="indicator fas fa-folder-open far"></i>Income
+                                    </li>
+                                    <li class="parent">
+                                        <i class="indicator fas fa-folder-open far"></i>  Liability
+                                    </li>
+                                    <li class="parent">
+                                        <i class="indicator fas fa-folder-open far"></i>
+                                        Share Holder Equity
+                                    </li>
+                                   
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                        
                         <div class="col-lg-6" id="myDIV" style="display: block;">
-                            <div class="card mb-4">
-                                <div class="card-body">
-
-                                    <div id="currentForm" style="display: block;">
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-4 col-form-label text-start fw-semi-bold">Account
-                                                Code</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" type="text" value="" id="account_code" disabled="">
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-4 col-form-label text-start fw-semi-bold">Account
-                                                Name</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" type="text" value="" id="account_name">
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-4 col-form-label text-start fw-semi-bold">Parent
-
-                                                
-                                            </label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" type="text" value="" id="parent_id" disabled="">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div id="addForm" style="display: none;">
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-4 col-form-label text-start fw-semi-bold">Account
-                                                Code</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" type="text" value="" id="new_account_code" disabled="">
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-4 col-form-label text-start fw-semi-bold">Account
-                                                Name</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" type="text" value="" id="new_account_name">
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label class="col-sm-4 col-form-label text-start fw-semi-bold">Parent
-
-                                                
-                                            </label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" type="text" value="" id="new_parent_id" disabled="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
+                           <div class="card mb-4">
+                              <div class="card-body">
+                                 <div id="currentForm" style="display: block;">
                                     <div class="mb-3 row">
-                                        <div class="col-sm-4"></div>
-                                        <div class="col-sm-8 d-flex justify-content-start gap-1" style="font-size: 12px;">
-                                            <div class="form-check form-check-inline" id="active" style="display: block; float: left;">
-                                                <input class="form-check-input" type="checkbox" i="" id="is_active" name="vehicle1" value="option1">
-                                                <label class="form-check-label" for="is_active">Is Active</label>
-                                            </div>
-                                            <div class="form-check form-check-inline" id="stock" style="display: block; float: left;">
-                                                <input class="form-check-input" type="checkbox" id="is_stock" name="vehicle1" value="option1">
-                                                <label class="form-check-label" for="is_stock">Is Stock</label>
-                                            </div>
-                                            <div class="form-check form-check-inline" id="fixed_asset" style="display: block; float: left;">
-                                                <input class="form-check-input" type="checkbox" id="is_fixed_asset" name="vehicle1" value="option1">
-                                                <label class="form-check-label" for="is_fixed_asset">Is Fixed Asset</label>
-                                            </div>
-                                        </div>
+                                       <label class="col-sm-4 col-form-label text-start fw-semi-bold">Account
+                                       Code</label>
+                                       <div class="col-sm-8">
+                                          <input class="form-control" type="text" value="" id="account_code" disabled="">
+                                       </div>
                                     </div>
-                                    
                                     <div class="mb-3 row">
-                                        <div class="col-sm-4"></div>
-                                        <div class="col-sm-8 d-flex justify-content-start  gap-1">
-                                            <button class="btn btn-sm btn-outline-success" id="newForm" style="width: 65px; height: 30px; text-align: center; display: block;">New</button>
-                                            <button class="btn btn-sm btn-outline-success" id="saveForm" style="display: none; width: 65px; height: 30px;text-align: center;">Save</button>
-                                            <button class="btn btn-sm btn-outline-success" id="updateForm" style="display: block; width: 65px; height: 30px; text-align: center;">Update</button>
-                                            <button class="btn btn-sm btn-outline-success" id="deleteAction" style="display: block; width: 65px; height: 30px; text-align: center;">Delete</button>
-                                            <button class="btn btn-sm btn-outline-success" id="undoForm" style="display: none; width: 65px; height: 30px;text-align: center;">Undo</button>
-                                        </div>
+                                       <label class="col-sm-4 col-form-label text-start fw-semi-bold">Account
+                                       Name</label>
+                                       <div class="col-sm-8">
+                                          <input class="form-control" type="text" value="" id="account_name">
+                                       </div>
                                     </div>
-                                </div>
-
-                            </div>
+                                    <div class="mb-3 row">
+                                       <label class="col-sm-4 col-form-label text-start fw-semi-bold">Parent
+                                       </label>
+                                       <div class="col-sm-8">
+                                          <input class="form-control" type="text" value="" id="parent_id" disabled="">
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div id="addForm" style="display: none;">
+                                    <div class="mb-3 row">
+                                       <label class="col-sm-4 col-form-label text-start fw-semi-bold">Account
+                                       Code</label>
+                                       <div class="col-sm-8">
+                                          <input class="form-control" type="text" value="" id="new_account_code" disabled="">
+                                       </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                       <label class="col-sm-4 col-form-label text-start fw-semi-bold">Account
+                                       Name</label>
+                                       <div class="col-sm-8">
+                                          <input class="form-control" type="text" value="" id="new_account_name">
+                                       </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                       <label class="col-sm-4 col-form-label text-start fw-semi-bold">Parent
+                                       </label>
+                                       <div class="col-sm-8">
+                                          <input class="form-control" type="text" value="" id="new_parent_id" disabled="">
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="mb-3 row">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-8 d-flex justify-content-start gap-1" style="font-size: 12px;">
+                                       <div class="form-check form-check-inline" id="active" style="display: block; float: left;">
+                                          <input class="form-check-input" type="checkbox" i="" id="is_active" name="vehicle1" value="option1">
+                                          <label class="form-check-label" for="is_active">Is Active</label>
+                                       </div>
+                                       <div class="form-check form-check-inline" id="stock" style="display: block; float: left;">
+                                          <input class="form-check-input" type="checkbox" id="is_stock" name="vehicle1" value="option1">
+                                          <label class="form-check-label" for="is_stock">Is Stock</label>
+                                       </div>
+                                       <div class="form-check form-check-inline" id="fixed_asset" style="display: block; float: left;">
+                                          <input class="form-check-input" type="checkbox" id="is_fixed_asset" name="vehicle1" value="option1">
+                                          <label class="form-check-label" for="is_fixed_asset">Is Fixed Asset</label>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="mb-3 row">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-8 d-flex justify-content-start  gap-1">
+                                       <button class="btn btn-sm btn-outline-success" id="newForm" style="width: 65px; height: 30px; text-align: center; display: block;">New</button>
+                                       <button class="btn btn-sm btn-outline-success" id="saveForm" style="display: none; width: 65px; height: 30px;text-align: center;">Save</button>
+                                       <button class="btn btn-sm btn-outline-success" id="updateForm" style="display: block; width: 65px; height: 30px; text-align: center;">Update</button>
+                                       <button class="btn btn-sm btn-outline-success" id="deleteAction" style="display: block; width: 65px; height: 30px; text-align: center;">Delete</button>
+                                       <button class="btn btn-sm btn-outline-success" id="undoForm" style="display: none; width: 65px; height: 30px;text-align: center;">Undo</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
 
-
-                        <div class="col-lg-6" id="Current_Assets" style="display:none;">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-4 col-form-label text-start fw-semi-bold">Head
-                                            Code</label>
-                                        <div class="col-sm-8">
-                                            <input class="form-control" type="text" value="" id="example-date-input">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-4 col-form-label text-start fw-semi-bold">Head
-                                            Name</label>
-                                        <div class="col-sm-8">
-                                            <input class="form-control" type="text" value="" id="example-time-input">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label class="col-sm-4 col-form-label text-start fw-semi-bold">Parent
-
-                                            
-                                        </label>
-                                        <div class="col-sm-8">
-                                            <input class="form-control" type="text" value="" id="example-date-input">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <div class="col-sm-4"></div>
-                                        <div class="col-sm-8">
-                                            <div class="row">
-                                                <div class="col-sm-4 form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Is Active
-                                                    </label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="bottom_bt_old" class="mb-3">
-                                        <button class="button button1" style="border-radius: 10px; margin: 3px; size: 30px; margin-left: 250px;" onclick="toggle('new');">New</button>
-                                        <button class="button button1" style="border-radius: 10px; margin: 3px; size: 30px; ">Update</button>
-                                        <button class="button button1" style="border-radius: 10px; margin: 3px; size: 30px;">Delete</button>
-                                    </div>
-
-                                    <div id="bottom_bt_new" class="mb-3" style="display: none; margin-left: 370px; margin-top: -41px;">
-                                        <div class="col-sm-4 form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="stock">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Is Stock
-                                            </label>
-                                        </div>
-                                        <div class="col-sm-4 form-check" style="margin-left: 130px; margin-top: -24px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Is Fixed Asset
-                                            </label>
-                                        </div>
-                                        <button class="button button1" style="border-radius: 10px; margin: 3px; size: 20px; margin-left: -170px;" onclick="toggle('old');">New</button>
-                                        <button class="button button1" style="border-radius: 10px; margin: 3px; size: 20px; ">Save</button>
-                                        <button class="button button1" style="border-radius: 10px; margin: 3px; size: 20px;">Delete</button><button class="button button1" id="Current_Assets_New" style="border-radius: 10px; margin: 3px; size: 20px;">Undo</button>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                           
                         </div>
-
-
-
-                    </div>
+                     </div>
                 </div>
             </div>
 
@@ -314,10 +213,27 @@
 {% block js %}
 
 <!-- Third Party Scripts(used by this page)-->
+<script src="{% static 'assets/plugins/jQuery/jquery.min.js' %}"></script>
     <script src="{% static 'assets/plugins/datatables/dataTables.min.js' %}"></script>
     <script src="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
     <!--Page Active Scripts(used by this page)-->
     <script src="{% static 'assets/plugins/datatables/data-basic.active.js' %}"></script>
-  
+   
+   <script>
+      $(".parent").css("display","none")
+
+      $(document).on("click",".branchBtn",function(){
+      $(".parent").toggleClass("toggle")
+     })
+     
+     $(document).on("click",".parent",function(){
+         $(this).children("ul").toggleClass("toggle")
+        
+     })
+     $(document).on("click",".children",function(){
+         $(this).children("ul").toggleClass("toggle")
+         
+     })
+   </script>
 
 {% endblock  %}

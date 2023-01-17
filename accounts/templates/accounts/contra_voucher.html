@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block  title %}Contra Voucher{% endblock %}
 {% load static %}
@@ -12,7 +13,7 @@
 <div class="content-wrapper">
     <div class="main-content">
    
-        <div class="content-header">
+        <div class="content-header d-flex justify-content-between">
             <div class="page-header m-0">
                 <h4 class="page-title">Contra Voucher</h4>
                 <ul class="breadcrumbs">
@@ -34,6 +35,12 @@
                         <a href="#">Contra Voucher</a>
                     </li>
                 </ul>
+            </div>
+            <!-- Button trigger modal -->
+            <div class="modal-button">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Create Contra Voucher
+                </button>
             </div>
         </div>
 
@@ -57,6 +64,90 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create Conta Voucher</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group row">
+                                    <label for="VoucherType" class="col-sm-3 col-form-label">Voucher Type </label>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control" id="VoucherType" placeholder="VoucherType">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="ReverseAccountHead" class="col-sm-3 col-form-label" >Reverse Account Head</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control" id="ReverseAccountHead" placeholder="ReverseAccountHead">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="example-date-input" class="col-sm-3 col-form-label"> Date </label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                        </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="Remark" class="col-sm-3 col-form-label">Remark </label>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control" id="Remark" placeholder="Remark">
+                                    </div>
+                                  </div>
+                
+                                  <table class="table table-bordered mt-5">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Account Name</th>
+                                        <th scope="col">Ledger Comment</th>
+                                        <th scope="col">Debit</th>
+                                        <th scope="col">Credit</th>
+                                        <th scope="col">Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="copytable2">
+                                      <tr>
+                                        <td scope="row">
+                                            <select class="form-select" id="sel1" name="sellist1">
+                                                <option>Please select One</option>
+                                                <option>Personal Account</option>
+                                                <option>Nominal Account</option>
+                                            </select>
+                                        </td>
+                                        </td>
+                                        <td><input class="form-control" type="text" value="" id="example-date-input" name="LedgerComment" placeholder="Comment"></td>
+                                        <td><input class="form-control amount" type="text" value="" id="example-date-input" name="Debit" placeholder="0.00"></td>
+                                        <td><input class="form-control amount2" type="text" value="" id="example-date-input" name="Credit" placeholder="0.00"></td>
+                                        <td></td>
+                                      </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td scope="row">
+                                                <button type="button" class="btn btn-dark addMoreBtn">Add More</button>
+                                            </td>
+                                            <td scope="col"><b>Total</b></td>
+                                            <td><input id="debitsum" class="form-control" type="text" value="" id="example-date-input" name="TotalDebit" placeholder="TotalDebit"></td>
+                                            <td><input id="creditsum" class="form-control" type="text" value="" id="example-date-input" name="TotalCredit" placeholder="TotalCredit"></td>
+                                          </tr>
+                                    </tfoot>
+                                  </table>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-success">Save changes</button>
+                                    </div>
+                                  </table>
+                
+                            </form>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -94,10 +185,12 @@
                                                 <td>credit</td>
                                                 <td>Reverse</td>
                                                 <td>
-                                                    <button class="btn-outline-success">
-                                                        Edit
+                                                    <button class="btn-outline-success btn">
+                                                        <i class='far fa-edit' ></i>
                                                     </button>
-                                                    <button class="btn-danger">X</button>
+                                                    <button class="btn-outline-danger btn">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             
@@ -112,10 +205,12 @@
                                                 <td>credit</td>
                                                 <td>Active</td>
                                                 <td>
-                                                    <button class="btn-outline-success">
-                                                        Edit
+                                                    <button class="btn-outline-success btn">
+                                                        <i class='far fa-edit' ></i>
                                                     </button>
-                                                    <button class="btn-danger">X</button>
+                                                    <button class="btn-outline-danger btn">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -132,6 +227,7 @@
 </div>
     <!--/.main content-->
 
+
 {% endblock  %}
 
 
@@ -142,6 +238,75 @@
     <script src="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
     <!--Page Active Scripts(used by this page)-->
     <script src="{% static 'assets/plugins/datatables/data-basic.active.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+        let counter = 1;
+        let singleElement = `
+        <tr>
+            <td scope="row">
+                <select class="form-select" id="sel1" name="sellist1">
+                    <option>Please select One</option>
+                    <option>Personal Account</option>
+                    <option>Nominal Account</option>
+                </select>
+            </td>
+            </td>
+            <td><input class="form-control" type="text" value="" id="example-date-input" name="LedgerComment" placeholder="Comment"></td>
+            <td><input class="form-control amount" type="text" value="" id="example-date-input" name="Debit" placeholder="0.00"></td>
+            <td><input class="form-control amount2" type="text" value="" id="example-date-input" name="Credit" placeholder="0.00"></td>
+            <td><button type="button" class="btn btn-danger removeBtn">Remove</button></td>
+        </tr>
+        
+          `;
+        let element=$("#copytable2")
+        $('.addMoreBtn').on('click', function () {
+         element.append(singleElement);
+        
+        });
+      
+        $(document).on('click',".removeBtn", function () {
+       
+            $(this).parent().parent().remove();
+            total_calculation()
+            total_calculations()
+    
+        });
+
+
+        let totalShow = $("#debitsum")
+    function total_calculation(){      
+        var amountBox = $('.amount');
+        var sum=0
+        for(var i=0; i<amountBox.length;i++){
+           sum+=Number(amountBox[i].value)   
+        }    
+       totalShow.val(parseFloat(sum).toFixed(2))
+        
+    }
+        $(document).on("keyup",".amount",function(){
+        total_calculation()
+         
+    })
+
+
+    let totalShows = $("#creditsum")
+    function total_calculations(){      
+        var amountBoxs = $('.amount2');
+        var sums=0
+        for(var j=0; j<amountBoxs.length;j++){
+           sums+=Number(amountBoxs[j].value)
+        }    
+       totalShows.val(parseFloat(sums).toFixed(2))
+        
+    }
+        $(document).on("keyup",".amount2",function(){
+        total_calculations()
+         
+    })
+
+      </script>
   
 
 {% endblock js %}

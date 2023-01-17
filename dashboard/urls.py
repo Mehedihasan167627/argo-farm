@@ -20,19 +20,8 @@ urlpatterns=[
     path("seo-setting/",SEOSettingView.as_view(),name="seo-setting"),
     path("shipping-method/",ShippingMethodView.as_view(),name="shipping-method"),
     path("slider-setting/",SliderSettingView.as_view(),name="slider-setting"),
-
     path("sms-config/",SMSConfigView.as_view(),name="sms-config"),
     path("social-media/",SocialMediaView.as_view(),name="social-media"),
-    path("subscriber/",SubscriberView.as_view(),name="subscriber"),
-
-
-
-
-
-
-    
-
-
-   
+    path("subscriber/",SubscriberView.as_view(),name="subscriber") 
     
 ]
