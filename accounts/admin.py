@@ -6,6 +6,8 @@ admin.site.register(Opening_balance)
 admin.site.register(Account_transaction)
 admin.site.register(Account_voucher)
 admin.site.register(Voucher_type)
+admin.site.register(Financial_year)
+admin.site.register(Account_type)
 
 
 @admin.register(Chart_Of_Account)

@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block  title %}Opening Balance{% endblock %}
 {% load static %}
@@ -106,32 +107,44 @@
                                             <th>Action</th>
                                       </tr>
                                     </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td><input class="form-control" type="text" value="" id=""></td>
-                                        <td><input class="form-control" type="text" value="" id=""></td>
-                                        <td><input class="form-control" type="text" value="" id=""></td>
-                                        <td><input class="form-control" type="text" value="" id=""></td>
-                                        <td><button>Remove</button></td>
-                                      </tr>
-                                      <tr>
-                                        <td><button>Add more</button></td>
-                                        <td>total :</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                      </tr>
-                                      
-                                    </tbody>
+                                    <tbody id="copytable">
+                                        <tr>
+                                          <td scope="row">
+                                              <select class="form-select" id="sel1" name="sellist1">
+                                                  <option>Please select One</option>
+                                                  <option>Personal Account</option>
+                                                  <option>Nominal Account</option>
+                                              </select>
+                                          </td>
+                                          
+                                          <td><input class="form-control" type="text" value="" id="example-date-input" name="subtype" placeholder="subtype"></td>
+                                          <td><input class="form-control amount" type="text" value="" id="example-date-input" name="Debit" placeholder="0.00"></td>
+                                          <td><input class="form-control amount2" type="text" value="" id="example-date-input" name="Credit" placeholder="0.00"></td>
+                                          <td></td>
+                                        </tr>
+                                        
+                                       
+                                        
+                                      </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td scope="row">
+                                                <button type="button" class="btn btn-dark addMoreBtn">Add More</button>
+                                            </td>
+                                            <td scope="col"><b>Total</b></td>
+                                            <td><input id="debitsum" class="form-control" type="text" value="" id="example-date-input" name="TotalDebit" placeholder="TotalDebit" ></td>
+                                            <td><input id="creditsum" class="form-control" type="text" value="" id="example-date-input" name="TotalCredit" placeholder="TotalCredit"></td>
+                                          </tr>
+                                    </tfoot>
                                   </table>
                             </div>
-            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
                         </form>
 
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
+                        
                     </div>
                     </div>
                 </div>
@@ -199,6 +212,70 @@
     <script src="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
     <!--Page Active Scripts(used by this page)-->
     <script src="{% static 'assets/plugins/datatables/data-basic.active.js' %}"></script>
+ 
+<script>
+    let counter = 1;
+    let singleElement = `
+    <tr>
+        <td scope="row">
+            <select class="form-select" id="sel1" name="sellist1">
+                <option>Please select One</option>
+                <option>Personal Account</option>
+                <option>Nominal Account</option>
+            </select>
+        </td>
+        </td>
+        <td><input class="form-control" type="text" value="" id="example-date-input" name="LedgerComment" placeholder="Comment"></td>
+        <td><input class="form-control amount" type="text" value="" id="example-date-input" name="Debit" placeholder="0.00"></td>
+        <td><input class="form-control amount2" type="text" value="" id="example-date-input" name="Credit" placeholder="0.00"></td>
+        <td><button type="button" class="btn btn-danger removeBtn">Remove</button></td>
+    </tr>
+    
+      `;
+    let element=$("#copytable")
+    $('.addMoreBtn').on('click', function () {
+     element.append(singleElement);
+    });
+  
+    $(document).on('click',".removeBtn", function () {
+        $(this).parent().parent().remove();
+        total_calculation()
+        total_calculations()
+    });
+
+
+    let totalShow = $("#debitsum")
+    function total_calculation(){      
+        var amountBox = $('.amount');
+        var sum=0
+        for(var i=0; i<amountBox.length;i++){
+           sum+=Number(amountBox[i].value)   
+        }    
+       totalShow.val(parseFloat(sum).toFixed(2))
+        
+    }
+        $(document).on("keyup",".amount",function(){
+        total_calculation()
+         
+    })
+
+
+    let totalShows = $("#creditsum")
+    function total_calculations(){      
+        var amountBoxs = $('.amount2');
+        var sums=0
+        for(var j=0; j<amountBoxs.length;j++){
+           sums+=Number(amountBoxs[j].value)
+        }    
+       totalShows.val(parseFloat(sums).toFixed(2))
+        
+    }
+        $(document).on("keyup",".amount2",function(){
+        total_calculations()
+         
+    })
+
+  </script>
   
 
 {% endblock js %}

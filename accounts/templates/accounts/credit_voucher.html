@@ -67,7 +67,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -81,40 +80,40 @@
                                 <div class="form-group row">
                                     <label for="VoucherType" class="col-sm-3 col-form-label">Voucher Type </label>
                                     <div class="col-sm-4">
-                                      <input type="text" class="form-control" id="VoucherType" readonly placeholder="Credit">
+                                    <input type="text" name="vouchar_type" class="form-control" id="VoucherType" readonly placeholder="Credit">
                                     </div>
-                                  </div>
-                                  <div class="form-group row">
+                                </div>
+                                <div class="form-group row">
                                     <label for="ReverseAccountHead" class="col-sm-3 col-form-label" >Credit Account Head</label>
                                     <div class="col-sm-4">
-                                      <input type="text" class="form-control" id="ReverseAccountHead" placeholder="Select one">
+                                    <input type="text" name="credit_acc_head" class="form-control" id="ReverseAccountHead" placeholder="Select one">
                                     </div>
-                                  </div>
-                                  <div class="form-group row">
+                                </div>
+                                <div class="form-group row">
                                     <label for="example-date-input" class="col-sm-3 col-form-label"> Date </label>
                                         <div class="col-sm-4">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                            <input class="form-control" type="date" name="date" value="2011-08-19" id="example-date-input">
                                         </div>
-                                  </div>
-                                  <div class="form-group row">
+                                </div>
+                                <div class="form-group row">
                                     <label for="Remark" class="col-sm-3 col-form-label">Remark </label>
                                     <div class="col-sm-4">
                                         <textarea class="form-control"></textarea>
                                     </div>
-                                  </div>
-                
-                                  <table class="table table-bordered mt-5">
+                                </div>
+
+                                <table class="table table-bordered mt-5">
                                     <thead>
-                                      <tr>
+                                    <tr>
                                         <th scope="col">Account Name</th>
                                         <th scope="col">Subtype</th>
                                         <th scope="col">Amount</th>
                                         <th scope="col">Ladger Amount</th>
                                         <th scope="col">Action</th>
-                                      </tr>
+                                    </tr>
                                     </thead>
                                     <tbody id="addtable">
-                                      <tr>
+                                    <tr>
                                         <td scope="row">
                                             <select class="form-select" id="sel1" name="sellist1">
                                                 <option>Please select One</option>
@@ -129,13 +128,13 @@
                                                 <option>Nominal Account</option>
                                             </select>
                                         </td>
-                                        <td><input class="form-control amount" type="text" value="" id="example-date-input"></td>
-                                        <td><input class="form-control" type="text" value="" id="example-date-input"></td>
+                                        <td><input class="form-control amount" type="text" name="credit_amount" value="" id="example-date-input"></td>
+                                        <td><input class="form-control" type="text" name="ledger_amount" value="" id="example-date-input"></td>
                                         <td><button type="button" class="btn btn-danger removeBtn">Remove</button></td>
-                                      </tr>
-                                      
-                                      
-                                      
+                                    </tr>
+                                    
+                                    
+                                    
                                     </tbody>
 
                                     <tfoot>
@@ -144,13 +143,13 @@
                                                 <button type="button" class="btn btn-dark" id="addmore">Add More</button>
                                             </td>
                                             <td >Total</td>
-                                            <td><input id="totalAmount" readonly class="form-control" type="text" value="" id="example-date-input"></td>
+                                            <td><input id="totalAmount" class="form-control" type="text" name="total_credit_amount" value="" id="example-date-input"></td>
                                             <td colspan="2"></td>
                                             
-                                          </tr>
+                                        </tr>
                                     </tfoot>
-                                  </table>
-                
+                                </table>
+
                             </form>
                         </div>
                             
@@ -182,25 +181,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>      
-                                        
-                                            <tr>
-                                                <td>2011/06/27</td>
-                                                <td></td>
-                                                <td>50</td>
-                                                <td>Vouchar</td>
-                                                <td>120000</td>
-                                                <td>0</td>
-                                                <td>40</td>
-                                                <td>
-                                                    <button class="btn-outline-success btn">
-                                                        <i class='far fa-edit' ></i>
-                                                    </button>
-                                                    <button class="btn-outline-danger btn">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                        {% for obj in obj_list %}
+                                        <tr>
+                                            <td>{{obj.voucher_date}}</td>
+                                            <td></td>
+                                            <td>{{obj.account_name}}</td>
+                                            <td>{{obj.ledger_coments}}</td>
+                                            <td>{{obj.debit}}</td>
+                                            <td>{{obj.credit}}</td>
+                                            <td>{{obj.reverse_code}}</td>
+                                            <td>
+                                                <button class="btn-outline-success btn">
+                                                    <i class='far fa-edit' ></i>
+                                                </button>
+                                                <button class="btn-outline-danger btn">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
                                            
+                                        
                                         </tbody>
                                     </table>
                                 </div>
@@ -209,6 +210,8 @@
                     </div>
                     <!-- data-table end -->
                 </div>
+                
+                
             </div>
         </div>
         <!--/.body content-->
@@ -226,7 +229,8 @@
     <!--Page Active Scripts(used by this page)-->
     <script src="{% static 'assets/plugins/datatables/data-basic.active.js' %}"></script>
     <script>
-                
+        
+        
         $('#addmore').on('click',function(){
             $('#addtable').append(`
             <tr>
@@ -244,8 +248,8 @@
                                                 <option>Nominal Account</option>
                                             </select>
                                         </td>
-                                        <td><input class="form-control amount" type="text" value="" id="example-date-input"></td>
-                                        <td><input class="form-control" type="text" value="" id="example-date-input"></td>
+                                        <td><input class="form-control amount" type="text" name="credit_amount" value="" id="example-date-input"></td>
+                                        <td><input class="form-control" type="text" value="ledger_amount" id="example-date-input"></td>
                                         <td><button type="button" class="btn btn-danger removeBtn">Remove</button></td>
                                       </tr>`);
             

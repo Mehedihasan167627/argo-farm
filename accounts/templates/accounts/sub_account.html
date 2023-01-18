@@ -88,16 +88,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>      
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Employee</td>
-                                                <td>Employee Receivable</td>
-                                                <td>2011/06/27</td>
-                                                <td>
-                                                    <button class="btn-outline-success btn"><i class='far fa-edit'></i></button>
-                                                    <button class="btn-outline-danger btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                </td>
-                                            </tr>
+                                        {% for obj in obj_list %} 
+                                        <tr>
+                                            <td>{{obj.id}}</td>
+                                            <td>{{obj.subtype_name}}</td>
+                                            <td>{{obj.name}}</td>
+                                            <td>{{obj.created_date}}</td>
+                                            <td>
+                                                <button class="btn-outline-success btn"><i class='far fa-edit'></i></button>
+                                                <button class="btn-outline-danger btn"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
                                            
                                         </tbody>
                                     </table>

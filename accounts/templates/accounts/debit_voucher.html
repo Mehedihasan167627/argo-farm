@@ -172,33 +172,39 @@
                                     <table class="table display table-bordered table-striped table-hover basic">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
+                                                <th>Date</th>
+                                                <th>VNo</th>
+                                                <th>Account Name</th>
+                                                <th>Ledger Comment</th>
+                                                <th>Debit Amount</th>
+                                                <th>Credit Amount</th>
+                                                <th>Reverse Account Name</th>
                                                 <th>action</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>      
-                                        
-                                            <tr>
-                                                <td>Michael Bruce</td>
-                                                <td>Javascript Developer</td>
-                                                <td>Singapore</td>
-                                                <td>29</td>
-                                                <td>2011/06/27</td>
-                                                <td>
-                                                    <button class="btn-outline-success btn">
-                                                        <i class='far fa-edit'></i>
-                                                    </button>
-                                                    <button class="btn-outline-danger btn">
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                        {% for obj in obj_list %}
+                                        <tr>
+                                            <td>{{obj.voucher_date}}</td>
+                                            <td></td>
+                                            <td>{{obj.account_name}}</td>
+                                            <td>{{obj.ledger_coments}}</td>
+                                            <td>{{obj.debit}}</td>
+                                            <td>{{obj.credit}}</td>
+                                            <td>{{obj.reverse_code}}</td>
+                                            <td>
+                                                <button class="btn-outline-success btn">
+                                                    <i class='far fa-edit' ></i>
+                                                </button>
+                                                <button class="btn-outline-danger btn">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
                                            
+                                        
                                         </tbody>
                                     </table>
                                 </div>

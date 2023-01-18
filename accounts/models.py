@@ -15,9 +15,6 @@ def generate_transaction_code(prefix):
     return new_loan_code
 
 
-
-
-
 class Account_type(models.Model):
     uuid                = models.CharField(max_length=50, null = True, blank = True, default='0')
     account_type_name = models.CharField(max_length=50, null = True, blank = True, default='0')
@@ -26,8 +23,6 @@ class Account_type(models.Model):
         return self.account_type_name 
     class Meta:
         db_table = 'account_type'
-
-
 
 
 class Chart_Of_Account(models.Model):
@@ -80,10 +75,6 @@ class Financial_year(models.Model):
 
     class Meta:
         db_table = 'financial year'
-
-
-
-
 
 class Account_subcode(models.Model):
     account_subtype         = models.TextField(null = True, blank = True, default='0')

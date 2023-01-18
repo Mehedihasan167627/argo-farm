@@ -61,51 +61,94 @@
                         <div class="col-lg-6" id="treeLoad">
                            <ul id="tree1" class="tree">
                               <li class="branch">
-                                 <i class="indicator fas fa-folder-open far"></i>
-                                 <i></i><a href="#" class="branchBtn">Chart Of Account</a>
-                                 <ul>
-                                    <li class="parent">
-                                        <i class="indicator fas fa-folder-open far"></i>   Assets
-                                         <ul style="display:none;">
+                                
+                                 <a href="#" class="branchBtn">
+                                    <i class="indicator fas fa-folder-open far"></i>
+                                    Chart Of Account</a>
+                                 <ul style="display: none;">
+                                    <li class="head">                                      
+                                        <a href="#" class="branchBtn">
+                                          <i class="indicator fas fa-folder-open far"></i>   
+                                          Assets</a>
+                                         <ul style="display: none;">
                                           <li>Student Receive</li>
                                           <li>Staff Receive</li>
-                                          <li class="parent">
-                                             <i class="indicator fas fa-folder-open far"></i>Students
+                                          <li>
+                                           
+                                             <a href="#" class="branchBtn">
+                                                <i class="indicator fas fa-folder-open far"></i>
+                                                Students</a>
                                                  <ul style="display:none;">
-                                                  <li>Student Receive</li>
-                                                  <li>Staff Receive</li>
-                                                  <li>Teacher Receive</li>
-                                                 </ul>
-                                                   
+                                                   <li>Student Receive</li>
+                                                   <li>Staff Receive</li>
+                                                   <li>Teacher Receive</li>
+                                                 </ul>                                                
                                           </li>
                                          </ul>
                                        </li>
-                                    <li class="parent">
-                                        <i class="indicator fas fa-folder-open far"></i>   Expenses
-                                        <ul style="display:none;">
+                                    <li class="head">                                      
+                                        <a href="#" class="branchBtn">
+                                          <i class="indicator fas fa-folder-open far"></i>   
+                                          Liability</a>
+                                         <ul style="display: none;">
                                           <li>Student Receive</li>
                                           <li>Staff Receive</li>
-                                          <li class="parent">
-                                             <i class="indicator fas fa-folder-open far"></i>Students
+                                          <li>
+                                           
+                                             <a href="#" class="branchBtn">
+                                                <i class="indicator fas fa-folder-open far"></i>
+                                                Students</a>
                                                  <ul style="display:none;">
-                                                  <li>Student Receive</li>
-                                                  <li>Staff Receive</li>
-                                                  <li>Teacher Receive</li>
-                                             </ul>
-                                                   
+                                                   <li>Student Receive</li>
+                                                   <li>Staff Receive</li>
+                                                   <li>Teacher Receive</li>
+                                                 </ul>                                                
                                           </li>
                                          </ul>
-                                    </li>
-                                    <li class="parent">
-                                        <i class="indicator fas fa-folder-open far"></i>Income
-                                    </li>
-                                    <li class="parent">
-                                        <i class="indicator fas fa-folder-open far"></i>  Liability
-                                    </li>
-                                    <li class="parent">
-                                        <i class="indicator fas fa-folder-open far"></i>
-                                        Share Holder Equity
-                                    </li>
+                                       </li>
+                                    <li class="head">                                      
+                                        <a href="#" class="branchBtn">
+                                          <i class="indicator fas fa-folder-open far"></i>   
+                                          Income</a>
+                                         <ul style="display: none;">
+                                          <li>Student Receive</li>
+                                          <li>Staff Receive</li>
+                                          <li>
+                                           
+                                             <a href="#" class="branchBtn">
+                                                <i class="indicator fas fa-folder-open far"></i>
+                                                Students</a>
+                                                 <ul style="display:none;">
+                                                   <li>Student Receive</li>
+                                                   <li>Staff Receive</li>
+                                                   <li>Teacher Receive</li>
+                                                 </ul>                                                
+                                          </li>
+                                         </ul>
+                                       </li>
+                                    <li class="head">                                      
+                                        <a href="#" class="branchBtn">
+                                          <i class="indicator fas fa-folder-open far"></i>   
+                                          Expenses</a>
+                                         <ul style="display: none;">
+                                          <li>Student Receive</li>
+                                          <li>Staff Receive</li>
+                                          <li>
+                                           
+                                             <a href="#" class="branchBtn">
+                                                <i class="indicator fas fa-folder-open far"></i>
+                                                Students</a>
+                                                 <ul style="display:none;">
+                                                   <li>Student Receive</li>
+                                                   <li>Staff Receive</li>
+                                                   <li>Teacher Receive</li>
+                                                 </ul>                                                
+                                          </li>
+                                         </ul>
+                                       </li>
+                               
+                                
+                                 
                                    
                                  </ul>
                               </li>
@@ -213,27 +256,19 @@
 {% block js %}
 
 <!-- Third Party Scripts(used by this page)-->
-<script src="{% static 'assets/plugins/jQuery/jquery.min.js' %}"></script>
+
     <script src="{% static 'assets/plugins/datatables/dataTables.min.js' %}"></script>
     <script src="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
     <!--Page Active Scripts(used by this page)-->
     <script src="{% static 'assets/plugins/datatables/data-basic.active.js' %}"></script>
    
    <script>
-      $(".parent").css("display","none")
-
+ 
       $(document).on("click",".branchBtn",function(){
-      $(".parent").toggleClass("toggle")
+          $(this).next("ul").toggleClass("toggle")
      })
      
-     $(document).on("click",".parent",function(){
-         $(this).children("ul").toggleClass("toggle")
-        
-     })
-     $(document).on("click",".children",function(){
-         $(this).children("ul").toggleClass("toggle")
-         
-     })
+   
    </script>
 
 {% endblock  %}
